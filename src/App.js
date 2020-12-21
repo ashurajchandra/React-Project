@@ -11,6 +11,92 @@ class App extends Component {
       Marshall: [],
     }
   }
+  handleOnChange1 =(e)=>{
+   const name =e.target.name;
+   const checked = e.target.checked;
+   const value = this.state.Portugal;
+   console.log('value,name,checked')
+
+   if(!checked){
+     const newValue= value.filter(item=> item !== name);
+      this.setState({
+         Portugal:[newValue]
+      })
+   }
+   else{
+      this.setState({
+         Portugal:[...value,name]
+      })
+   }
+  }
+  handleOnChange2 =(e)=>{
+   const name =e.target.name;
+   const checked = e.target.checked;
+   const value = this.state.Nicaragua;
+   console.log('value,name,checked')
+
+   if(!checked){
+     const newValue= value.filter(item=> item !== name);
+      this.setState({
+         Nicaragua:[newValue]
+      })
+   }
+   else{
+      this.setState({
+         Nicaragua:[...value,name]
+      })
+   }
+
+}
+handleOnChange3 =(e)=>{
+   const name =e.target.name;
+   const checked = e.target.checked;
+   const value = this.state.Marshall;
+   console.log('value,name,checked')
+
+   if(!checked){
+     const newValue= value.filter(item=> item !== name);
+      this.setState({
+         Marshall:[newValue]
+      })
+   }
+   else{
+      this.setState({
+         Marshall:[...value,name]
+      })
+   }
+
+}
+
+handleRemove1=(e,item)=>{
+   // e.preventDefault()
+  const{Portugal} = this.state;
+//   const filteredCity= city.filter((item=> item !== ))
+      const filteredValue = Portugal.filter((Item=> Item === item));
+      console.log('filteredValue', filteredValue);
+      this.setState({
+         Portugal: [filteredValue]
+      })
+
+}
+handleRemove2=(e,item)=>{
+   e.preventDefault();
+   const {Nicaragua} = this.state;
+   const filteredValue = Nicaragua.filter((Item=> Item === item));
+   console.log('Nicaragua filteredValue', filteredValue);
+   this.setState({
+      Nicaragua: [filteredValue]
+   })
+}
+handleRemove3=(e, item)=>{
+   e.preventDefault();
+   const {Marshall} = this.state;
+   const filteredValue = Marshall.filter((Item=> Item === item));
+   console.log('Marshall filteredValue', filteredValue);
+   this.setState({
+      Marshall: [filteredValue]
+   })
+}
 
 
   render() {
@@ -53,12 +139,12 @@ class App extends Component {
             </div>
            
             <div>
-               <input type="checkbox" name="Obasey Chiddy" id="Aasiya jayavant" onChange={this.handleOnChange2}/>
+               <input type="checkbox" name="Obasey Chiddy" id="Obasey Chiddy" onChange={this.handleOnChange2}/>
                <label for="task1">Obasey Chiddy</label>
             </div>
            
             <div>
-               <input type="checkbox" name="Xienie Dolezelova" id="Aasiya jayavant" onChange={this.handleOnChange2}/>
+               <input type="checkbox" name="Xienie Dolezelova" id="Xienie Dolezelova" onChange={this.handleOnChange2}/>
                <label for="task1">Xienie Dolezelova</label>
             </div>
 
