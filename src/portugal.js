@@ -2,6 +2,7 @@ import * as React from 'react';
 
 function PortugalCity  (props)  {
     const{Portugal, handleRemove1} = props;
+    console.log('inside city portugal', Portugal, handleRemove1);
     return (
        
         <div className="single-city">

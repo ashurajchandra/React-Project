@@ -15,18 +15,21 @@ class App extends Component {
    const name =e.target.name;
    const checked = e.target.checked;
    const value = this.state.Portugal;
-   console.log('value,name,checked')
+   console.log('value,name,checked', value, name, checked)
 
    if(!checked){
      const newValue= value.filter(item=> item !== name);
       this.setState({
          Portugal:[newValue]
       })
+      // console.log('Portugal in uncheked newvalue', Portugal);
    }
    else{
       this.setState({
          Portugal:[...value,name]
       })
+   
+      
    }
   }
   handleOnChange2 =(e)=>{
@@ -70,8 +73,11 @@ handleOnChange3 =(e)=>{
 
 handleRemove1=(e,item)=>{
    // e.preventDefault()
+   // to unchek the box after clicking remove button
+   //  const check = e.target.checked;
   const{Portugal} = this.state;
 //   const filteredCity= city.filter((item=> item !== ))
+console.log('Portugal', Portugal);
       const filteredValue = Portugal.filter((Item=> Item === item));
       console.log('filteredValue', filteredValue);
       this.setState({
@@ -80,7 +86,7 @@ handleRemove1=(e,item)=>{
 
 }
 handleRemove2=(e,item)=>{
-   e.preventDefault();
+   // e.preventDefault();
    const {Nicaragua} = this.state;
    const filteredValue = Nicaragua.filter((Item=> Item === item));
    console.log('Nicaragua filteredValue', filteredValue);
@@ -89,7 +95,7 @@ handleRemove2=(e,item)=>{
    })
 }
 handleRemove3=(e, item)=>{
-   e.preventDefault();
+   // e.preventDefault();
    const {Marshall} = this.state;
    const filteredValue = Marshall.filter((Item=> Item === item));
    console.log('Marshall filteredValue', filteredValue);
@@ -130,43 +136,40 @@ handleRemove3=(e, item)=>{
             <h2> Nicaragua</h2>
             <div>
                <input type="checkbox" name="Devedaas Nandi" id="Devedaas Nandi" onChange={this.handleOnChange2}/>
-               <label for="task1">Devedaas Nandi</label>
+               <label for="task2">Devedaas Nandi</label>
             </div>
            
             <div>
                <input type="checkbox" name="Eziquiel Dengra" id="Eziquiel Dengra" onChange={this.handleOnChange2}/>
-               <label for="task1">Eziquiel Dengra</label>
+               <label for="task2">Eziquiel Dengra</label>
             </div>
            
             <div>
                <input type="checkbox" name="Obasey Chiddy" id="Obasey Chiddy" onChange={this.handleOnChange2}/>
-               <label for="task1">Obasey Chiddy</label>
+               <label for="task2">Obasey Chiddy</label>
             </div>
            
             <div>
                <input type="checkbox" name="Xienie Dolezelova" id="Xienie Dolezelova" onChange={this.handleOnChange2}/>
-               <label for="task1">Xienie Dolezelova</label>
+               <label for="task2">Xienie Dolezelova</label>
             </div>
 
             <h2> Marshall Islands</h2>
             <div>
                <input type="checkbox" name="Aaron Almaraz" id="Aaron Almaraz" onChange={this.handleOnChange3}/>
-               <label for="task1">Aaron Almaraz</label>
+               <label for="task3">Aaron Almaraz</label>
             </div>
             {/* <h2> Nicaragua</h2> */}
             <div>
                <input type="checkbox" name="Zelena Denisova" id="Zelena Denisova" onChange={this.handleOnChange3}/>
-               <label for="task1">Zelena Denisova</label>
+               <label for="task3">Zelena Denisova</label>
             </div>
             {/* <h2> Nicaragua</h2> */}
-            <div>
-               <input type="checkbox" name="Xienie Dolezelova" id="Xienie Dolezelova" onChange={this.handleOnChange3}/>
-               <label for="task1">Xienie Dolezelova</label>
-            </div>
+         
         </form>
 
       <div className="city-selected">
-         {Portugal.length == 0 && Nicaragua.length == 0 && Marshall.length == 0 ? 
+         {Portugal.length === 0 && Nicaragua.length === 0 && Marshall.length === 0 ? 
          <h3 >No Value Selected</h3> :
          <City
          Portugal={Portugal}
